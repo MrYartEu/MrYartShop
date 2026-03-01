@@ -156,7 +156,6 @@ header {
 
     <!-- Action Buttons -->
     <a class="button" href="https://buy.stripe.com/placeholder1" target="_blank">Buy Now</a>
-    <button class="button" onclick="addToCart()">Add to Cart</button>
     <a class="button" href="index.html">Return to Store</a>
   </div>
 </div>
@@ -213,19 +212,6 @@ function updateImage() {
   } else {
     img.src = "images/store_front.png"; // default image
   }
-}
-
-// Add to cart alert
-function addToCart() {
-  const flavor = document.getElementById("flavor").value;
-  const quantity = document.getElementById("quantity").value;
-
-  if (!flavor) {
-    alert("Please select a flavor first.");
-    return;
-  }
-
-  alert(`Added ${quantity} x Ace Ultra Premium (${flavor}) to cart!`);
 }
 </script>
 
