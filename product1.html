@@ -3,106 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MrYartEu - Giant Skittles</title>
-
+<title>MrYartEu - Skittles</title>
 <style>
-body {
-  font-family: Arial;
-  background: #f2f2f2;
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  background: #111;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-.main-box {
-  max-width: 1200px;
-  margin: 60px auto;
-  background: white;
-  display: flex;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  overflow: hidden;
-}
-
-/* LEFT SIDE IMAGE */
-.left-side {
-  flex: 2;
-  background: #fafafa;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 60px;
-}
-
-.left-side img {
-  max-width: 80%;
-  max-height: 500px;
-  width: auto;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
-
-/* RIGHT SIDE INFO */
-.right-side {
-  flex: 1;
-  padding: 60px 50px;
-  display: flex;
-  flex-direction: column;
-}
-
-.right-side h2 {
-  font-size: 32px;
-  margin-bottom: 30px;
-}
-
-/* BUTTON STYLE */
-.button {
-  padding: 16px;
-  margin-bottom: 15px;
-  text-align: center;
-  background: black;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-size: 16px;
-  transition: 0.3s;
-}
-
-.button:hover {
-  background: #333;
-}
-
-/* DESCRIPTION UNDER BUTTONS */
-.description {
-  margin-top: 30px;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #444;
-}
-
-@media (max-width: 900px) {
-  .main-box {
-    flex-direction: column;
-  }
-
-  .left-side {
-    padding: 40px;
-  }
-
-  .right-side {
-    padding: 30px;
-  }
-}
+body { font-family: Arial; background: #f2f2f2; margin: 0; padding: 0; }
+header { background: #111; color: white; padding: 20px; text-align: center; }
+.main-box { max-width: 1200px; margin: 60px auto; background: white; display: flex; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); overflow: hidden; }
+.left-side { flex: 2; background: #fafafa; display: flex; align-items: center; justify-content: center; padding: 60px; }
+.left-side img { max-width: 80%; max-height: 500px; width: auto; height: auto; object-fit: contain; }
+.right-side { flex: 1; padding: 60px 50px; display: flex; flex-direction: column; }
+.right-side h2 { font-size: 32px; margin-bottom: 20px; }
+.right-side label { font-weight: bold; margin-top: 15px; margin-bottom: 5px; }
+.flavor-select, .quantity-select { padding: 12px; font-size: 16px; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 20px; width: 100%; }
+.price { font-size: 22px; margin-bottom: 20px; color: #222; }
+.button { padding: 16px; margin-bottom: 15px; text-align: center; background: black; color: white; text-decoration: none; border-radius: 6px; font-size: 16px; cursor: pointer; border:none; }
+.button:hover { background: #333; }
+.description { margin-top: 30px; font-size: 16px; line-height: 1.6; color: #444; }
+@media(max-width:900px) { .main-box { flex-direction: column; } .left-side { padding: 40px; } .right-side { padding: 30px; } }
 </style>
 </head>
-
 <body>
 
 <header>
@@ -110,29 +28,87 @@ header {
 </header>
 
 <div class="main-box">
-
   <div class="left-side">
-    <img src="product1.jpg" alt="Giant Skittles">
+    <img id="product-image" src="product1.jpg" alt="Skittles">
   </div>
 
   <div class="right-side">
-    <h2>Giant Skittles</h2>
+    <h2>Skittles</h2>
+
+    <!-- Flavor Selector -->
+    <label for="flavor">Choose a flavor:</label>
+    <select class="flavor-select" id="flavor" onchange="updateImage()">
+      <option value="">Select Flavor</option>
+      <option value="Strawberry Dream">Strawberry Dream</option>
+      <option value="Raspberry Kiss">Raspberry Kiss</option>
+      <option value="Berry Burst">Berry Burst</option>
+      <option value="Zombie Zest">Zombie Zest</option>
+      <option value="Apple Cooler">Apple Cooler</option>
+      <option value="Citrus Sunset">Citrus Sunset</option>
+      <option value="Jack-O-Lantern">Jack-O-Lantern</option>
+      <option value="Kiwi Berry Mist">Kiwi Berry Mist</option>
+      <option value="Rose Serenade">Rose Serenade</option>
+    </select>
+
+    <!-- Quantity Selector -->
+    <label for="quantity">Quantity:</label>
+    <select class="quantity-select" id="quantity">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+
+    <!-- Price Display -->
+    <div class="price" id="price">€30</div>
 
     <a class="button" href="https://buy.stripe.com/placeholder1" target="_blank">Buy Now</a>
-
-    <a class="button" href="#">Add to Cart</a>
-
+    <button class="button" onclick="addToCart()">Add to Cart</button>
     <a class="button" href="index.html">Return to Store</a>
 
     <div class="description">
-      Giant Skittles with intense fruity flavor and extra crunch.
-      Add your full product description here. Include size, weight,
-      ingredients, and shipping details.
+      Taste the rainbow with premium Skittles. Choose your favorite exclusive flavor and enjoy a bold fruity experience.
     </div>
-
   </div>
-
 </div>
+
+<script>
+// Example flavor-specific images mapping
+const flavorImages = {
+  "Strawberry Dream": "product1_strawberry.jpg",
+  "Raspberry Kiss": "product1_raspberry.jpg",
+  "Berry Burst": "product1_berryburst.jpg",
+  "Zombie Zest": "product1_zombie.jpg",
+  "Apple Cooler": "product1_apple.jpg",
+  "Citrus Sunset": "product1_citrus.jpg",
+  "Jack-O-Lantern": "product1_jack.jpg",
+  "Kiwi Berry Mist": "product1_kiwi.jpg",
+  "Rose Serenade": "product1_rose.jpg"
+};
+
+function updateImage() {
+  const flavor = document.getElementById("flavor").value;
+  const img = document.getElementById("product-image");
+  if (flavor && flavorImages[flavor]) {
+    img.src = flavorImages[flavor];
+  } else {
+    img.src = "product1.jpg";
+  }
+}
+
+function addToCart() {
+  const flavor = document.getElementById("flavor").value;
+  const quantity = document.getElementById("quantity").value;
+
+  if (!flavor) {
+    alert("Please select a flavor first.");
+    return;
+  }
+
+  alert(`Added ${quantity} x Skittles (${flavor}) to cart!`);
+}
+</script>
 
 </body>
 </html>
