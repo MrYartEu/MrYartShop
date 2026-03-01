@@ -29,11 +29,12 @@ header { background: #111; color: white; padding: 20px; text-align: center; }
 
 <div class="main-box">
   <div class="left-side">
-    <img id="product-image" src="Strawberry Dream (2).png" alt="Giant Skittel's">
+    <!-- Default product image -->
+    <img id="product-image" src="images/store_front.png" alt="Giant Skittles">
   </div>
 
   <div class="right-side">
-    <h2>Giant Skittel's</h2>
+  <h2>Giant Skittles</h2>
 
     <!-- Flavor Selector -->
     <label for="flavor">Choose a flavor:</label>
@@ -61,13 +62,14 @@ header { background: #111; color: white; padding: 20px; text-align: center; }
     </select>
 
     <!-- Price Display -->
-    <div class="price" id="price">€30</div>
+    <div class="price" id="price">€35</div>
 
+    <!-- Action Buttons -->
     <a class="button" href="https://buy.stripe.com/placeholder1" target="_blank">Buy Now</a>
     <button class="button" onclick="addToCart()">Add to Cart</button>
     <a class="button" href="index.html">Return to Store</a>
 
-    <!-- Updated Product Description -->
+    <!-- Product Description -->
     <div class="description">
       <strong>Discover the Full Spectrum of Ace Ultra Premium Flavours</strong><br>
       Indulge in our curated selection of Ace Ultra Premium flavours, expertly crafted for a smooth and satisfying experience:
@@ -97,29 +99,31 @@ header { background: #111; color: white; padding: 20px; text-align: center; }
 </div>
 
 <script>
-// Example flavor-specific images mapping
+// Flavor-specific images mapping
 const flavorImages = {
-  "Strawberry Dream": "product1_strawberry.jpg",
-  "Raspberry Kiss": "product1_raspberry.jpg",
-  "Berry Burst": "product1_berryburst.jpg",
-  "Zombie Zest": "product1_zombie.jpg",
-  "Apple Cooler": "product1_apple.jpg",
-  "Citrus Sunset": "product1_citrus.jpg",
-  "Jack-O-Lantern": "product1_jack.jpg",
-  "Kiwi Berry Mist": "product1_kiwi.jpg",
-  "Rose Serenade": "product1_rose.jpg"
+  "Strawberry Dream": "images/strawberry_dream.png",
+  "Raspberry Kiss": "images/raspberry_kiss.png",
+  "Berry Burst": "images/berry_burst.png",
+  "Zombie Zest": "images/zombie_zest.png",
+  "Apple Cooler": "images/apple_cooler.png",
+  "Citrus Sunset": "images/citrus_sunset.png",
+  "Jack-O-Lantern": "images/jack_o_lantern.png",
+  "Kiwi Berry Mist": "images/kiwi_berry_mist.png",
+  "Rose Serenade": "images/rose_serenade.png"
 };
 
+// Change image when flavor selected
 function updateImage() {
   const flavor = document.getElementById("flavor").value;
   const img = document.getElementById("product-image");
   if (flavor && flavorImages[flavor]) {
     img.src = flavorImages[flavor];
   } else {
-    img.src = "product1.jpg";
+    img.src = "images/product1.png"; // default product image
   }
 }
 
+// Add to cart alert
 function addToCart() {
   const flavor = document.getElementById("flavor").value;
   const quantity = document.getElementById("quantity").value;
