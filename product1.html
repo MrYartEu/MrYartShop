@@ -19,29 +19,43 @@ header {
   text-align: center;
 }
 .main-box {
-  max-width: 900px;
-  margin: 60px auto;
+  max-width: 1200px;
+  margin: 60px auto 20px auto;
   background: white;
+  display: flex;
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  padding: 30px;
-  text-align: center;
+  overflow: hidden;
 }
-.main-box img {
+.left-side {
+  flex: 2;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
+.left-side img {
   max-width: 80%;
+  max-height: 500px;
+  width: auto;
   height: auto;
-  border-radius: 12px;
   object-fit: contain;
-  margin-bottom: 30px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* subtle premium shadow */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
-h2 {
+.right-side {
+  flex: 1;
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+}
+.right-side h2 {
   font-size: 32px;
   margin-bottom: 20px;
 }
-label {
+.right-side label {
   font-weight: bold;
-  display: block;
   margin-top: 15px;
   margin-bottom: 5px;
 }
@@ -51,8 +65,7 @@ label {
   border-radius: 6px;
   border: 1px solid #ccc;
   margin-bottom: 20px;
-  width: 60%;
-  max-width: 300px;
+  width: 100%;
 }
 .price {
   font-size: 22px;
@@ -60,8 +73,9 @@ label {
   color: #222;
 }
 .button {
-  padding: 16px 30px;
-  margin: 10px 5px;
+  padding: 16px;
+  margin-bottom: 15px;
+  text-align: center;
   background: black;
   color: white;
   text-decoration: none;
@@ -69,24 +83,32 @@ label {
   font-size: 16px;
   cursor: pointer;
   border: none;
-  display: inline-block;
 }
 .button:hover { background: #333; }
-.description {
-  margin-top: 40px;
-  font-size: 16px;
+
+/* Description below image */
+.description-below {
+  width: 100%;
+  background: #fafafa;
+  padding: 40px 20px;
+  margin-top: 20px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+.description-below .description {
+  max-width: 900px;
+  margin: 0 auto; /* centers the text */
+  text-align: left;
   line-height: 1.6;
   color: #444;
-  text-align: left;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
 }
-.description ul {
+.description-below ul {
   padding-left: 20px;
 }
-@media(max-width: 600px) {
-  .flavor-select, .quantity-select { width: 90%; }
+
+@media(max-width:900px) {
+  .main-box { flex-direction: column; }
+  .left-side { padding: 40px; }
+  .right-side { padding: 30px; }
 }
 </style>
 </head>
@@ -97,46 +119,50 @@ label {
 </header>
 
 <div class="main-box">
-  <!-- Product Image -->
-  <img id="product-image" src="images/store_front.png" alt="Ace Ultra Premium">
+  <div class="left-side">
+    <img id="product-image" src="images/store_front.png" alt="Giant Skittles">
+  </div>
 
-  <!-- Product Name -->
-  <h2>Ace Ultra Premium 2g Disposable Vape</h2>
+  <div class="right-side">
+    <h2>Giant Skittles</h2>
 
-  <!-- Flavor Selector -->
-  <label for="flavor">Choose a flavor:</label>
-  <select class="flavor-select" id="flavor" onchange="updateImage()">
-    <option value="">Select Flavor</option>
-    <option value="Strawberry Dream">Strawberry Dream</option>
-    <option value="Raspberry Kiss">Raspberry Kiss</option>
-    <option value="Berry Burst">Berry Burst</option>
-    <option value="Zombie Zest">Zombie Zest</option>
-    <option value="Apple Cooler">Apple Cooler</option>
-    <option value="Citrus Sunset">Citrus Sunset</option>
-    <option value="Jack-O-Lantern">Jack-O-Lantern</option>
-    <option value="Kiwi Berry Mist">Kiwi Berry Mist</option>
-    <option value="Rose Serenade">Rose Serenade</option>
-  </select>
+    <!-- Flavor Selector -->
+    <label for="flavor">Choose a flavor:</label>
+    <select class="flavor-select" id="flavor" onchange="updateImage()">
+      <option value="">Select Flavor</option>
+      <option value="Strawberry Dream">Strawberry Dream</option>
+      <option value="Raspberry Kiss">Raspberry Kiss</option>
+      <option value="Berry Burst">Berry Burst</option>
+      <option value="Zombie Zest">Zombie Zest</option>
+      <option value="Apple Cooler">Apple Cooler</option>
+      <option value="Citrus Sunset">Citrus Sunset</option>
+      <option value="Jack-O-Lantern">Jack-O-Lantern</option>
+      <option value="Kiwi Berry Mist">Kiwi Berry Mist</option>
+      <option value="Rose Serenade">Rose Serenade</option>
+    </select>
 
-  <!-- Quantity Selector -->
-  <label for="quantity">Quantity:</label>
-  <select class="quantity-select" id="quantity">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
+    <!-- Quantity Selector -->
+    <label for="quantity">Quantity:</label>
+    <select class="quantity-select" id="quantity">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
 
-  <!-- Price -->
-  <div class="price">€35</div>
+    <!-- Price Display -->
+    <div class="price" id="price">€35</div>
 
-  <!-- Action Buttons -->
-  <a class="button" href="https://buy.stripe.com/placeholder1" target="_blank">Buy Now</a>
-  <button class="button" onclick="addToCart()">Add to Cart</button>
-  <a class="button" href="index.html">Return to Store</a>
+    <!-- Action Buttons -->
+    <a class="button" href="https://buy.stripe.com/placeholder1" target="_blank">Buy Now</a>
+    <button class="button" onclick="addToCart()">Add to Cart</button>
+    <a class="button" href="index.html">Return to Store</a>
+  </div>
+</div>
 
-  <!-- Description Under Image -->
+<!-- Description below image, full width -->
+<div class="description-below">
   <div class="description">
     <strong>Discover the Full Spectrum of Ace Ultra Premium Flavours</strong><br>
     Indulge in our curated selection of Ace Ultra Premium flavours, expertly crafted for a smooth and satisfying experience:
@@ -152,18 +178,20 @@ label {
       <li><strong>Rose Serenade</strong></li>
     </ul>
 
-    <strong>Performance Features:</strong>
+    <strong>Ace Ultra Premium 2g Disposable Vape</strong><br>
+    Engineered for performance and convenience, the Ace Ultra Premium 2g combines sleek design with high-capacity functionality:
     <ul>
-      <li><strong>650mAh rechargeable lithium-polymer battery</strong> – over 350 full draws at 3.2V</li>
-      <li><strong>Dual-ceramic coil</strong> – consistent, smooth hits</li>
-      <li><strong>USB-C charging port</strong> – fast, reliable recharge</li>
-      <li><strong>Sleek portable design</strong> – ideal for on-the-go use</li>
-      <li><strong>Premium hassle-free vaping experience</strong></li>
+      <li><strong>650mAh rechargeable lithium-polymer battery</strong> – provides over 350 full draws at 3.2V</li>
+      <li><strong>Dual-ceramic coil</strong> – ensures consistent, even heating for smooth hits</li>
+      <li><strong>USB-C charging port</strong> – fast and reliable recharging</li>
+      <li><strong>Sleek, portable design</strong> – perfect for on-the-go use</li>
+      <li><strong>Premium, hassle-free vaping experience</strong></li>
     </ul>
   </div>
 </div>
 
 <script>
+// Flavor-specific images mapping
 const flavorImages = {
   "Strawberry Dream": "images/strawberry_dream.png",
   "Raspberry Kiss": "images/raspberry_kiss.png",
@@ -176,16 +204,27 @@ const flavorImages = {
   "Rose Serenade": "images/rose_serenade.png"
 };
 
+// Change image when flavor selected
 function updateImage() {
   const flavor = document.getElementById("flavor").value;
   const img = document.getElementById("product-image");
-  img.src = flavorImages[flavor] || "images/store_front.png";
+  if (flavor && flavorImages[flavor]) {
+    img.src = flavorImages[flavor];
+  } else {
+    img.src = "images/store_front.png"; // default image
+  }
 }
 
+// Add to cart alert
 function addToCart() {
   const flavor = document.getElementById("flavor").value;
   const quantity = document.getElementById("quantity").value;
-  if (!flavor) { alert("Please select a flavor first."); return; }
+
+  if (!flavor) {
+    alert("Please select a flavor first.");
+    return;
+  }
+
   alert(`Added ${quantity} x Ace Ultra Premium (${flavor}) to cart!`);
 }
 </script>
