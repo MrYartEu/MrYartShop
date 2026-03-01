@@ -5,31 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MrYartEu - Haribo Golden Bears</title>
 <style>
-body{font-family:Arial;background:#f7f7f7;margin:0;padding:0;color:#333;}
-header{background:#222;color:#fff;padding:20px;text-align:center;}
-.container{display:flex;max-width:1000px;margin:40px auto;background:#fff;border-radius:10px;box-shadow:0 3px 10px rgba(0,0,0,0.1);padding:40px;min-height:600px;}
-.left{flex:1;padding:20px;display:flex;align-items:center;justify-content:center;}
-.left img{width:100%;max-width:400px;border-radius:8px;}
-.right{flex:1;padding:20px;display:flex;flex-direction:column;}
-.right h2{font-size:2rem;margin-bottom:25px;}
-.btn{padding:14px 25px;background:#222;color:#fff;text-decoration:none;border-radius:5px;display:block;margin-bottom:15px;text-align:center;}
-.btn:hover{background:#444;}
-.description{margin-top:20px;line-height:1.6;}
+body{font-family:Arial;background:#f2f2f2;margin:0;padding:0;}
+header{background:#111;color:white;padding:20px;text-align:center;}
+.main-box{max-width:1200px;margin:60px auto;background:white;display:flex;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.08);overflow:hidden;}
+.left-side{flex:2;background:#fafafa;display:flex;align-items:center;justify-content:center;padding:60px;}
+.left-side img{max-width:80%;max-height:500px;width:auto;height:auto;object-fit:contain;}
+.right-side{flex:1;padding:60px 50px;display:flex;flex-direction:column;}
+.right-side h2{font-size:32px;margin-bottom:30px;}
+.button{padding:16px;margin-bottom:15px;text-align:center;background:black;color:white;text-decoration:none;border-radius:6px;font-size:16px;}
+.button:hover{background:#333;}
+.description{margin-top:30px;font-size:16px;line-height:1.6;color:#444;}
+@media(max-width:900px){.main-box{flex-direction:column;}.left-side{padding:40px;}.right-side{padding:30px;}}
 </style>
 </head>
+
 <body>
 <header><h1>MrYartEu</h1></header>
-<div class="container">
-<div class="left"><img src="product3.jpg" alt="Haribo Golden Bears"></div>
-<div class="right">
-<h2>Haribo Golden Bears</h2>
-<a class="btn" href="https://buy.stripe.com/placeholder3" target="_blank">Buy Now</a>
-<a class="btn" href="#">Add to Basket</a>
-<a class="btn" href="index.html">← Back to Store</a>
-<div class="description">
-Soft gummy bears with classic fruity flavor.
+
+<div class="main-box">
+  <div class="left-side">
+    <img src="product3.jpg" alt="Haribo Golden Bears">
+  </div>
+
+  <div class="right-side">
+    <h2>Haribo Golden Bears</h2>
+
+    <a class="button" href="https://buy.stripe.com/placeholder3" target="_blank">Buy Now</a>
+    <a class="button" href="#">Add to Cart</a>
+    <a class="button" href="index.html">Return to Store</a>
+
+    <div class="description">
+      Classic gummy bears with soft texture and fruity flavors.
+    </div>
+  </div>
 </div>
-</div>
-</div>
+
 </body>
 </html>
