@@ -1,181 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MrYartEu Store</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f7f7f7;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MrYartEu Store</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* VIDEO BACKGROUND */
+  #bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+  }
+
+  /* Dark overlay for readability */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+
+  header {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 2rem;
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px 20px;
+  }
+
+  nav .left { flex: 1; text-align: left; }
+  nav .right { flex: 1; text-align: right; }
+
+  .container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    flex: 1;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    justify-items: center;
+    align-items: stretch;
+  }
+
+  .product {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #333;
+  }
+
+  .product img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+
+  .product h2 {
+    font-size: 1.3rem;
+    margin: 10px 0 15px 0;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #222;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+    margin-top: auto;
+  }
+
+  .btn:hover {
+    background: #555;
+  }
+
+  .coming-soon {
+    margin: 80px auto;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: 'Arial Black', sans-serif;
+    color: #fff;
+  }
+
+  .about-us {
+    max-width: 1200px;
+    margin: 40px auto 60px auto;
+    padding: 25px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    color: #333;
+  }
+
+  footer {
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+  }
+
+  @media(max-width: 1000px) {
+    .gallery {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
     }
-    header {
-      background: #222;
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
+  }
+
+  @media(max-width: 600px) {
+    .gallery {
+      grid-template-columns: 1fr;
+      gap: 30px;
     }
     nav {
-      margin-top: 10px;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: bold;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 30px auto;
-      padding: 0 20px;
-      flex: 1;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 60px; /* Increased gap for more spacing between products */
-      justify-items: center;
-      align-items: stretch;
-    }
-    .product {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      width: 100%;
-      max-width: 350px;
-      text-align: center;
-      padding: 20px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-      display: flex;
       flex-direction: column;
-      justify-content: space-between;
-    }
-    .product img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      object-fit: cover;
-      margin-bottom: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    }
-    .product h2 {
-      font-size: 1.3rem;
-      margin: 10px 0 15px 0;
-    }
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #222;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background 0.3s;
-      margin-top: auto;
-    }
-    .btn:hover {
-      background: #444;
-    }
-    footer {
-      background: #ddd;
-      color: #555;
       text-align: center;
-      padding: 15px 0;
-      font-size: 0.9rem;
-      margin-top: auto;
     }
-    @media(max-width: 1000px) {
-      .gallery {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
-      }
-      .product {
-        max-width: 90%;
-      }
+    nav .left, nav .right {
+      text-align: center;
+      margin: 5px 0;
     }
-    @media(max-width: 600px) {
-      .gallery {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-      .product {
-        max-width: 100%;
-      }
-    }
-    h2 {
-      margin-bottom: 50px; /* extra space above gallery */
-    }
-  </style>
+  }
+
+</style>
 </head>
 <body>
-  <header>
-    <h1>MrYartEu</h1>
-    <nav>
-      <a href="#store">Store</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <div class="container" id="store">
-    <h2 style="text-align:center;">Our Candy Collection</h2>
-    <div class="gallery">
-      
-      <!-- Product 1 -->
-      <div class="product">
-        <img src="images/store_front.png" alt="Giant Skittles">
-        <h2>Giant Skittles</h2>
-        <a class="btn" href="product1.html">View / Buy</a>
-      </div>
+<!-- VIDEO -->
+<video autoplay muted loop id="bg-video">
+  <source src="videos/galaxyy.mp4" type="video/mp4">
+</video>
 
-      <!-- Product 2 -->
-      <div class="product">
-        <img src="images/muha_meds.png" alt="Sour Patch Kids">
-        <h2>Sour Patch Kids</h2>
-        <a class="btn" href="product2.html">View / Buy</a>
-      </div>
+<!-- DARK OVERLAY -->
+<div class="overlay"></div>
 
-      <!-- Product 3 -->
-      <div class="product">
-        <img src="images/boutiq.png" alt="Haribo Golden Bears">
-        <h2>Haribo Golden Bears</h2>
-        <a class="btn" href="product3.html">View / Buy</a>
-      </div>
+<header>
+  <nav>
+    <div class="left"><a href="#about">About Us</a></div>
+    <div class="right"><a href="#contact">Contact Us</a></div>
+  </nav>
+  <h1>MrYartEu</h1>
+</header>
 
-      <!-- Product 4 -->
-      <div class="product">
-        <img src="images/product4.png" alt="Nerds Rainbow">
-        <h2>Nerds Rainbow</h2>
-        <a class="btn" href="product4.html">View / Buy</a>
-      </div>
+<div class="container">
+  <h2 style="text-align:center;">Our Candy Collection</h2>
 
-      <!-- Product 5 -->
-      <div class="product">
-        <img src="images/product5.png" alt="Jolly Ranchers">
-        <h2>Jolly Ranchers</h2>
-        <a class="btn" href="product5.html">View / Buy</a>
-      </div>
+  <div class="gallery">
 
-      <!-- Product 6 -->
-      <div class="product">
-        <img src="images/product6.png" alt="M&M's Peanut">
-        <h2>M&M's Peanut</h2>
-        <a class="btn" href="product6.html">View / Buy</a>
-      </div>
-
+    <div class="product">
+      <img src="images/store_front.png" alt="Giant Skittles">
+      <h2>Giant Skittles</h2>
+      <a class="btn" href="product1.html">View / Buy</a>
     </div>
-  </div>
 
-  <footer id="contact">
-    Contact: youremail@example.com | © 2026 MrYartEu
-  </footer>
+    <div class="product">
+      <img src="images/muha_meds.png" alt="Sour Patch Kids">
+      <h2>Sour Patch Kids</h2>
+      <a class="btn" href="product2.html">View / Buy</a>
+    </div>
+
+    <div class="product">
+      <img src="images/boutiq.png" alt="Haribo Golden Bears">
+      <h2>Haribo Golden Bears</h2>
+      <a class="btn" href="product3.html">View / Buy</a>
+    </div>
+
+  </div>
+</div>
+
+<div class="coming-soon">Coming Soon!</div>
+
+<div class="about-us" id="about">
+  <h2>About Us</h2>
+  <p>Welcome to MrYartEu! We are passionate about providing premium disposable vape products. Our selection includes the latest and most popular flavors for an unmatched vaping experience. Quality, convenience, and customer satisfaction are our top priorities.</p>
+</div>
+
+<footer id="contact">
+  Contact: youremail@example.com | © 2026 MrYartEu
+</footer>
+
 </body>
 </html>
