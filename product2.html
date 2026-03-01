@@ -52,7 +52,7 @@ header {
 }
 .right-side h2 {
   font-size: 32px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .right-side label {
   font-weight: bold;
@@ -86,7 +86,6 @@ header {
 }
 .button:hover { background: #333; }
 
-/* Description below image */
 .description-below {
   width: 100%;
   background: #fafafa;
@@ -96,7 +95,7 @@ header {
 }
 .description-below .description {
   max-width: 900px;
-  margin: 0 auto; /* centers the text */
+  margin: 0 auto;
   text-align: left;
   line-height: 1.6;
   color: #444;
@@ -120,14 +119,13 @@ header {
 
 <div class="main-box">
   <div class="left-side">
-    <!-- Default product image -->
     <img id="product-image" src="images/muha_meds.png" alt="Muhameds 3rd Gen 2g">
   </div>
 
   <div class="right-side">
     <h2>Haribo Golden Bears</h2>
+    <div class="price" id="price">€40</div>
 
-    <!-- Flavor Selector -->
     <label for="flavor">Choose a flavour:</label>
     <select class="flavor-select" id="flavor" onchange="updateImage()">
       <option value="">Select Flavour</option>
@@ -142,7 +140,6 @@ header {
       <option value="Dragon Berry Runts">Dragon Berry Runts</option>
     </select>
 
-    <!-- Quantity Selector -->
     <label for="quantity">Quantity:</label>
     <select class="quantity-select" id="quantity">
       <option value="1">1</option>
@@ -152,16 +149,11 @@ header {
       <option value="5">5</option>
     </select>
 
-    <!-- Price Display -->
-    <div class="price" id="price">€40</div>
-
-    <!-- Action Buttons -->
     <a class="button" href="https://buy.stripe.com/placeholder2" target="_blank">Buy Now</a>
     <a class="button" href="index.html">Return to Store</a>
   </div>
 </div>
 
-<!-- Description below image, full width -->
 <div class="description-below">
   <div class="description">
     <strong>Discover the Full Spectrum of Muhameds 3rd Gen 2g Flavours</strong><br>
@@ -178,23 +170,23 @@ header {
       <li><strong>Dragon Berry Runts</strong></li>
     </ul>
 
-    <strong>Battery Specifications</strong><br>
+    <strong>Battery Specifications</strong>
     <ul>
       <li><strong>Capacity:</strong> 500 mAh lithium-polymer battery</li>
       <li><strong>Performance:</strong> Approximately 340–375 puffs per full charge</li>
       <li><strong>Charging:</strong> USB port, ~60 minutes for full charge</li>
     </ul>
 
-    <strong>Screen and Display Indicators</strong><br>
+    <strong>Screen and Display Indicators</strong>
     <ul>
       <li><strong>LED Indicator:</strong> Shows charging status and usage</li>
       <li><strong>Charging Status:</strong> Red while charging, green or off when fully charged</li>
       <li><strong>Usage Indicator:</strong> Illuminates during inhalation</li>
     </ul>
 
-    <strong>Other 3rd Gen Specs</strong><br>
+    <strong>Other 3rd Gen Specs</strong>
     <ul>
-      <li><strong>Coil:</strong> Sintered zirconia ceramic coil with platinum wire – prevents degradation until final 0.2g of oil</li>
+      <li><strong>Coil:</strong> Sintered zirconia ceramic coil with platinum wire</li>
       <li><strong>Sleek, portable design:</strong> Perfect for on-the-go vaping</li>
       <li><strong>Premium experience:</strong> Smooth, reliable, hassle-free</li>
     </ul>
@@ -202,7 +194,6 @@ header {
 </div>
 
 <script>
-// Flavor-specific images mapping
 const flavorImages = {
   "Watermelon Moonshine": "images/watermelon_moonshine.png",
   "Sweet Dreams OG": "images/sweat_dreams_og.png",
@@ -215,14 +206,13 @@ const flavorImages = {
   "Dragon Berry Runts": "images/dragon_berry_runts.png"
 };
 
-// Change image when flavor selected
 function updateImage() {
   const flavor = document.getElementById("flavor").value;
   const img = document.getElementById("product-image");
   if (flavor && flavorImages[flavor]) {
     img.src = flavorImages[flavor];
   } else {
-    img.src = "images/muhameds_front.png"; // default image
+    img.src = "images/muha_meds.png";
   }
 }
 </script>
