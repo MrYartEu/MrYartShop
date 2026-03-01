@@ -5,50 +5,88 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MrYartEu - Ace Ultra Premium</title>
 <style>
-body { font-family: Arial; background: #f2f2f2; margin: 0; padding: 0; }
-header { background: #111; color: white; padding: 20px; text-align: center; }
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+header {
+  background: #111;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
 .main-box {
-  max-width: 1200px;
+  max-width: 900px;
   margin: 60px auto;
   background: white;
-  display: flex;
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  overflow: hidden;
-  align-items: flex-start; /* top-align left and right side */
+  padding: 30px;
+  text-align: center;
 }
-.left-side {
-  flex: 2;
-  background: #fafafa;
-  display: flex;
-  justify-content: center; /* horizontally center */
-  padding: 20px 40px;
-}
-.left-side img {
-  max-width: 100%;
-  max-height: 600px;
-  width: auto;
+.main-box img {
+  max-width: 80%;
   height: auto;
+  border-radius: 12px;
   object-fit: contain;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* subtle premium shadow */
+}
+h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+label {
+  font-weight: bold;
   display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
-.right-side {
-  flex: 1;
-  padding: 40px 50px;
-  display: flex;
-  flex-direction: column;
+.flavor-select, .quantity-select {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  width: 60%;
+  max-width: 300px;
 }
-.right-side h2 { font-size: 32px; margin-bottom: 20px; }
-.right-side label { font-weight: bold; margin-top: 15px; margin-bottom: 5px; }
-.flavor-select, .quantity-select { padding: 12px; font-size: 16px; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 20px; width: 100%; }
-.price { font-size: 22px; margin-bottom: 20px; color: #222; }
-.button { padding: 16px; margin-bottom: 15px; text-align: center; background: black; color: white; text-decoration: none; border-radius: 6px; font-size: 16px; cursor: pointer; border:none; }
+.price {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #222;
+}
+.button {
+  padding: 16px 30px;
+  margin: 10px 5px;
+  background: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+}
 .button:hover { background: #333; }
-.description { margin-top: 30px; font-size: 16px; line-height: 1.6; color: #444; }
-@media(max-width:900px) {
-  .main-box { flex-direction: column; align-items: center; }
-  .left-side { padding: 20px; }
-  .right-side { padding: 30px; }
+.description {
+  margin-top: 40px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+  text-align: left;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.description ul {
+  padding-left: 20px;
+}
+@media(max-width: 600px) {
+  .flavor-select, .quantity-select { width: 90%; }
 }
 </style>
 </head>
@@ -59,72 +97,69 @@ header { background: #111; color: white; padding: 20px; text-align: center; }
 </header>
 
 <div class="main-box">
-  <div class="left-side">
-    <img id="product-image" src="images/store_front.png" alt="Giant Skittles">
-  </div>
+  <!-- Product Image -->
+  <img id="product-image" src="images/store_front.png" alt="Ace Ultra Premium">
 
-  <div class="right-side">
-    <h2>Giant Skittles</h2>
+  <!-- Product Name -->
+  <h2>Ace Ultra Premium 2g Disposable Vape</h2>
 
-    <!-- Flavor Selector -->
-    <label for="flavor">Choose a flavor:</label>
-    <select class="flavor-select" id="flavor" onchange="updateImage()">
-      <option value="">Select Flavor</option>
-      <option value="Strawberry Dream">Strawberry Dream</option>
-      <option value="Raspberry Kiss">Raspberry Kiss</option>
-      <option value="Berry Burst">Berry Burst</option>
-      <option value="Zombie Zest">Zombie Zest</option>
-      <option value="Apple Cooler">Apple Cooler</option>
-      <option value="Citrus Sunset">Citrus Sunset</option>
-      <option value="Jack-O-Lantern">Jack-O-Lantern</option>
-      <option value="Kiwi Berry Mist">Kiwi Berry Mist</option>
-      <option value="Rose Serenade">Rose Serenade</option>
-    </select>
+  <!-- Flavor Selector -->
+  <label for="flavor">Choose a flavor:</label>
+  <select class="flavor-select" id="flavor" onchange="updateImage()">
+    <option value="">Select Flavor</option>
+    <option value="Strawberry Dream">Strawberry Dream</option>
+    <option value="Raspberry Kiss">Raspberry Kiss</option>
+    <option value="Berry Burst">Berry Burst</option>
+    <option value="Zombie Zest">Zombie Zest</option>
+    <option value="Apple Cooler">Apple Cooler</option>
+    <option value="Citrus Sunset">Citrus Sunset</option>
+    <option value="Jack-O-Lantern">Jack-O-Lantern</option>
+    <option value="Kiwi Berry Mist">Kiwi Berry Mist</option>
+    <option value="Rose Serenade">Rose Serenade</option>
+  </select>
 
-    <!-- Quantity Selector -->
-    <label for="quantity">Quantity:</label>
-    <select class="quantity-select" id="quantity">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
+  <!-- Quantity Selector -->
+  <label for="quantity">Quantity:</label>
+  <select class="quantity-select" id="quantity">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
 
-    <!-- Price Display -->
-    <div class="price" id="price">€35</div>
+  <!-- Price -->
+  <div class="price">€35</div>
 
-    <!-- Action Buttons -->
-    <a class="button" href="https://buy.stripe.com/placeholder1" target="_blank">Buy Now</a>
-    <button class="button" onclick="addToCart()">Add to Cart</button>
-    <a class="button" href="index.html">Return to Store</a>
+  <!-- Action Buttons -->
+  <a class="button" href="https://buy.stripe.com/placeholder1" target="_blank">Buy Now</a>
+  <button class="button" onclick="addToCart()">Add to Cart</button>
+  <a class="button" href="index.html">Return to Store</a>
 
-    <!-- Product Description -->
-    <div class="description">
-      <strong>Discover the Full Spectrum of Ace Ultra Premium Flavours</strong><br>
-      Indulge in our curated selection of Ace Ultra Premium flavours, expertly crafted for a smooth and satisfying experience:
-      <ul>
-        <li><strong>Strawberry Dream</strong></li>
-        <li><strong>Raspberry Kiss</strong></li>
-        <li><strong>Berry Burst</strong></li>
-        <li><strong>Zombie Zest</strong></li>
-        <li><strong>Apple Cooler</strong></li>
-        <li><strong>Citrus Sunset</strong></li>
-        <li><strong>Jack-O-Lantern</strong></li>
-        <li><strong>Kiwi Berry Mist</strong></li>
-        <li><strong>Rose Serenade</strong></li>
-      </ul>
+  <!-- Description Under Image -->
+  <div class="description">
+    <strong>Discover the Full Spectrum of Ace Ultra Premium Flavours</strong><br>
+    Indulge in our curated selection of Ace Ultra Premium flavours, expertly crafted for a smooth and satisfying experience:
+    <ul>
+      <li><strong>Strawberry Dream</strong></li>
+      <li><strong>Raspberry Kiss</strong></li>
+      <li><strong>Berry Burst</strong></li>
+      <li><strong>Zombie Zest</strong></li>
+      <li><strong>Apple Cooler</strong></li>
+      <li><strong>Citrus Sunset</strong></li>
+      <li><strong>Jack-O-Lantern</strong></li>
+      <li><strong>Kiwi Berry Mist</strong></li>
+      <li><strong>Rose Serenade</strong></li>
+    </ul>
 
-      <strong>Ace Ultra Premium 2g Disposable Vape</strong><br>
-      Engineered for performance and convenience, the Ace Ultra Premium 2g combines sleek design with high-capacity functionality:
-      <ul>
-        <li><strong>650mAh rechargeable lithium-polymer battery</strong> – provides over 350 full draws at 3.2V</li>
-        <li><strong>Dual-ceramic coil</strong> – ensures consistent, even heating for smooth hits</li>
-        <li><strong>USB-C charging port</strong> – fast and reliable recharging</li>
-        <li><strong>Sleek, portable design</strong> – perfect for on-the-go use</li>
-        <li><strong>Premium, hassle-free vaping experience</strong></li>
-      </ul>
-    </div>
+    <strong>Performance Features:</strong>
+    <ul>
+      <li><strong>650mAh rechargeable lithium-polymer battery</strong> – over 350 full draws at 3.2V</li>
+      <li><strong>Dual-ceramic coil</strong> – consistent, smooth hits</li>
+      <li><strong>USB-C charging port</strong> – fast, reliable recharge</li>
+      <li><strong>Sleek portable design</strong> – ideal for on-the-go use</li>
+      <li><strong>Premium hassle-free vaping experience</strong></li>
+    </ul>
   </div>
 </div>
 
@@ -144,7 +179,7 @@ const flavorImages = {
 function updateImage() {
   const flavor = document.getElementById("flavor").value;
   const img = document.getElementById("product-image");
-  img.src = (flavor && flavorImages[flavor]) ? flavorImages[flavor] : "images/store_front.png";
+  img.src = flavorImages[flavor] || "images/store_front.png";
 }
 
 function addToCart() {
