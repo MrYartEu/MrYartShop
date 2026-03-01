@@ -52,7 +52,7 @@ header {
 }
 .right-side h2 {
   font-size: 32px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .right-side label {
   font-weight: bold;
@@ -86,7 +86,6 @@ header {
 }
 .button:hover { background: #333; }
 
-/* Description below image */
 .description-below {
   width: 100%;
   background: #fafafa;
@@ -96,7 +95,7 @@ header {
 }
 .description-below .description {
   max-width: 900px;
-  margin: 0 auto; /* centers the text */
+  margin: 0 auto;
   text-align: left;
   line-height: 1.6;
   color: #444;
@@ -125,8 +124,8 @@ header {
 
   <div class="right-side">
     <h2>Giant Skittles</h2>
+    <div class="price" id="price">€35</div>
 
-    <!-- Flavor Selector -->
     <label for="flavor">Choose a flavor:</label>
     <select class="flavor-select" id="flavor" onchange="updateImage()">
       <option value="">Select Flavor</option>
@@ -141,7 +140,6 @@ header {
       <option value="Rose Serenade">Rose Serenade</option>
     </select>
 
-    <!-- Quantity Selector -->
     <label for="quantity">Quantity:</label>
     <select class="quantity-select" id="quantity">
       <option value="1">1</option>
@@ -151,20 +149,15 @@ header {
       <option value="5">5</option>
     </select>
 
-    <!-- Price Display -->
-    <div class="price" id="price">€35</div>
-
-    <!-- Action Buttons -->
     <a class="button" href="https://buy.stripe.com/placeholder1" target="_blank">Buy Now</a>
     <a class="button" href="index.html">Return to Store</a>
   </div>
 </div>
 
-<!-- Description below image, full width -->
 <div class="description-below">
   <div class="description">
     <strong>Discover the Full Spectrum of Ace Ultra Premium Flavours</strong><br>
-    Indulge in our curated selection of Ace Ultra Premium flavours, expertly crafted for a smooth and satisfying experience:
+    Indulge in our curated selection of Ace Ultra Premium flavours for a smooth and satisfying experience:
     <ul>
       <li><strong>Strawberry Dream</strong></li>
       <li><strong>Raspberry Kiss</strong></li>
@@ -178,10 +171,10 @@ header {
     </ul>
 
     <strong>Ace Ultra Premium 2g Disposable Vape</strong><br>
-    Engineered for performance and convenience, the Ace Ultra Premium 2g combines sleek design with high-capacity functionality:
+    Engineered for performance and convenience:
     <ul>
-      <li><strong>650mAh rechargeable lithium-polymer battery</strong> – provides over 350 full draws at 3.2V</li>
-      <li><strong>Dual-ceramic coil</strong> – ensures consistent, even heating for smooth hits</li>
+      <li><strong>650mAh rechargeable lithium-polymer battery</strong> – provides over 350 full draws</li>
+      <li><strong>Dual-ceramic coil</strong> – ensures consistent, even heating</li>
       <li><strong>USB-C charging port</strong> – fast and reliable recharging</li>
       <li><strong>Sleek, portable design</strong> – perfect for on-the-go use</li>
       <li><strong>Premium, hassle-free vaping experience</strong></li>
@@ -190,7 +183,6 @@ header {
 </div>
 
 <script>
-// Flavor-specific images mapping
 const flavorImages = {
   "Strawberry Dream": "images/strawberry_dream.png",
   "Raspberry Kiss": "images/raspberry_kiss.png",
@@ -203,14 +195,13 @@ const flavorImages = {
   "Rose Serenade": "images/rose_serenade.png"
 };
 
-// Change image when flavor selected
 function updateImage() {
   const flavor = document.getElementById("flavor").value;
   const img = document.getElementById("product-image");
   if (flavor && flavorImages[flavor]) {
     img.src = flavorImages[flavor];
   } else {
-    img.src = "images/store_front.png"; // default image
+    img.src = "images/store_front.png";
   }
 }
 </script>
