@@ -3,43 +3,229 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MrYartEu - Sour Patch Kids</title>
-
+<title>MrYartEu - Muhameds 3rd Gen 2g</title>
 <style>
-body{font-family:Arial;background:#f2f2f2;margin:0;padding:0;}
-header{background:#111;color:white;padding:20px;text-align:center;}
-.main-box{max-width:1200px;margin:60px auto;background:white;display:flex;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.08);overflow:hidden;}
-.left-side{flex:2;background:#fafafa;display:flex;align-items:center;justify-content:center;padding:60px;}
-.left-side img{max-width:80%;max-height:500px;width:auto;height:auto;object-fit:contain;}
-.right-side{flex:1;padding:60px 50px;display:flex;flex-direction:column;}
-.right-side h2{font-size:32px;margin-bottom:30px;}
-.button{padding:16px;margin-bottom:15px;text-align:center;background:black;color:white;text-decoration:none;border-radius:6px;font-size:16px;}
-.button:hover{background:#333;}
-.description{margin-top:30px;font-size:16px;line-height:1.6;color:#444;}
-@media(max-width:900px){.main-box{flex-direction:column;}.left-side{padding:40px;}.right-side{padding:30px;}}
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+header {
+  background: #111;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+.main-box {
+  max-width: 1200px;
+  margin: 60px auto 20px auto;
+  background: white;
+  display: flex;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+.left-side {
+  flex: 2;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
+.left-side img {
+  max-width: 80%;
+  max-height: 500px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.right-side {
+  flex: 1;
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+}
+.right-side h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.right-side label {
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.flavor-select, .quantity-select {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.price {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #222;
+}
+.button {
+  padding: 16px;
+  margin-bottom: 15px;
+  text-align: center;
+  background: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+}
+.button:hover { background: #333; }
+
+/* Description below image */
+.description-below {
+  width: 100%;
+  background: #fafafa;
+  padding: 40px 20px;
+  margin-top: 20px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+.description-below .description {
+  max-width: 900px;
+  margin: 0 auto; /* centers the text */
+  text-align: left;
+  line-height: 1.6;
+  color: #444;
+}
+.description-below ul {
+  padding-left: 20px;
+}
+
+@media(max-width:900px) {
+  .main-box { flex-direction: column; }
+  .left-side { padding: 40px; }
+  .right-side { padding: 30px; }
+}
 </style>
 </head>
-
 <body>
-<header><h1>MrYartEu</h1></header>
+
+<header>
+  <h1>MrYartEu</h1>
+</header>
 
 <div class="main-box">
   <div class="left-side">
-    <img src="product2.jpg" alt="Sour Patch Kids">
+    <!-- Default product image -->
+    <img id="product-image" src="images/muhameds_front.png" alt="Muhameds 3rd Gen 2g">
   </div>
 
   <div class="right-side">
-    <h2>Sour Patch Kids</h2>
+    <h2>Muhameds 3rd Gen 2g</h2>
 
+    <!-- Flavor Selector -->
+    <label for="flavor">Choose a flavour:</label>
+    <select class="flavor-select" id="flavor" onchange="updateImage()">
+      <option value="">Select Flavour</option>
+      <option value="Watermelon Moonshine">Watermelon Moonshine</option>
+      <option value="Sweet Dreams OG">Sweet Dreams OG</option>
+      <option value="Galactic Diesel">Galactic Diesel</option>
+      <option value="Horchata">Horchata</option>
+      <option value="Blue Slushy">Blue Slushy</option>
+      <option value="Bubble Gum Burst">Bubble Gum Burst</option>
+      <option value="Pineapple Paradise">Pineapple Paradise</option>
+      <option value="Habibi">Habibi</option>
+      <option value="Dragon Berry Runts">Dragon Berry Runts</option>
+    </select>
+
+    <!-- Quantity Selector -->
+    <label for="quantity">Quantity:</label>
+    <select class="quantity-select" id="quantity">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+
+    <!-- Price Display -->
+    <div class="price" id="price">€40</div>
+
+    <!-- Action Buttons -->
     <a class="button" href="https://buy.stripe.com/placeholder2" target="_blank">Buy Now</a>
-    <a class="button" href="#">Add to Cart</a>
     <a class="button" href="index.html">Return to Store</a>
-
-    <div class="description">
-      Sweet then sour candy with bold fruity flavor. Perfect for candy lovers.
-    </div>
   </div>
 </div>
+
+<!-- Description below image, full width -->
+<div class="description-below">
+  <div class="description">
+    <strong>Discover the Full Spectrum of Muhameds 3rd Gen 2g Flavours</strong><br>
+    Indulge in Muhameds 3rd Gen 2g disposable vapes, designed for a smooth, consistent, and premium experience:
+    <ul>
+      <li><strong>Watermelon Moonshine</strong></li>
+      <li><strong>Sweet Dreams OG</strong></li>
+      <li><strong>Galactic Diesel</strong></li>
+      <li><strong>Horchata</strong></li>
+      <li><strong>Blue Slushy</strong></li>
+      <li><strong>Bubble Gum Burst</strong></li>
+      <li><strong>Pineapple Paradise</strong></li>
+      <li><strong>Habibi</strong></li>
+      <li><strong>Dragon Berry Runts</strong></li>
+    </ul>
+
+    <strong>Battery Specifications</strong><br>
+    <ul>
+      <li><strong>Capacity:</strong> 500 mAh lithium-polymer battery</li>
+      <li><strong>Performance:</strong> Approximately 340–375 puffs per full charge</li>
+      <li><strong>Charging:</strong> USB port, ~60 minutes for full charge</li>
+    </ul>
+
+    <strong>Screen and Display Indicators</strong><br>
+    <ul>
+      <li><strong>LED Indicator:</strong> Shows charging status and usage</li>
+      <li><strong>Charging Status:</strong> Red while charging, green or off when fully charged</li>
+      <li><strong>Usage Indicator:</strong> Illuminates during inhalation</li>
+    </ul>
+
+    <strong>Other 3rd Gen Specs</strong><br>
+    <ul>
+      <li><strong>Coil:</strong> Sintered zirconia ceramic coil with platinum wire – prevents degradation until final 0.2g of oil</li>
+      <li><strong>Sleek, portable design:</strong> Perfect for on-the-go vaping</li>
+      <li><strong>Premium experience:</strong> Smooth, reliable, hassle-free</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+// Flavor-specific images mapping
+const flavorImages = {
+  "Watermelon Moonshine": "images/watermelon_moonshine.png",
+  "Sweet Dreams OG": "images/sweet_dreams_og.png",
+  "Galactic Diesel": "images/galactic_diesel.png",
+  "Horchata": "images/horchata.png",
+  "Blue Slushy": "images/blue_slushy.png",
+  "Bubble Gum Burst": "images/bubble_gum_burst.png",
+  "Pineapple Paradise": "images/pineapple_paradise.png",
+  "Habibi": "images/habibi.png",
+  "Dragon Berry Runts": "images/dragon_berry_runts.png"
+};
+
+// Change image when flavor selected
+function updateImage() {
+  const flavor = document.getElementById("flavor").value;
+  const img = document.getElementById("product-image");
+  if (flavor && flavorImages[flavor]) {
+    img.src = flavorImages[flavor];
+  } else {
+    img.src = "images/muhameds_front.png"; // default image
+  }
+}
+</script>
 
 </body>
 </html>
