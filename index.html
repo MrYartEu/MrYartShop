@@ -5,19 +5,115 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MrYartEu Store</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f7f7f7; color: #333; }
-    header { background: #222; color: #fff; padding: 20px 0; text-align: center; }
-    header h1 { margin: 0; font-size: 2rem; }
-    nav { margin-top: 10px; }
-    nav a { color: #fff; text-decoration: none; margin: 0 10px; font-weight: bold; }
-    .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
-    .gallery { display: flex; flex-wrap: wrap; justify-content: space-around; }
-    .product { background: #fff; border: 1px solid #ddd; border-radius: 8px; width: 300px; margin: 15px; text-align: center; padding: 20px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); }
-    .product img { width: 100%; height: auto; border-radius: 5px; }
-    .product h2 { font-size: 1.2rem; margin: 10px 0; }
-    .btn { display: inline-block; padding: 10px 20px; background: #222; color: #fff; text-decoration: none; border-radius: 5px; transition: background 0.3s; }
-    .btn:hover { background: #444; }
-    footer { text-align: center; padding: 20px 0; background: #222; color: #fff; margin-top: 40px; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+      flex: 1;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px; /* Increased gap for more spacing between products */
+      justify-items: center;
+      align-items: stretch;
+    }
+    .product {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 350px;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .product h2 {
+      font-size: 1.3rem;
+      margin: 10px 0 15px 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #222;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+      margin-top: auto;
+    }
+    .btn:hover {
+      background: #444;
+    }
+    footer {
+      background: #ddd;
+      color: #555;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+    @media(max-width: 1000px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+      }
+      .product {
+        max-width: 90%;
+      }
+    }
+    @media(max-width: 600px) {
+      .gallery {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .product {
+        max-width: 100%;
+      }
+    }
+    h2 {
+      margin-bottom: 50px; /* extra space above gallery */
+    }
   </style>
 </head>
 <body>
@@ -79,7 +175,7 @@
   </div>
 
   <footer id="contact">
-    <p>Contact: youremail@example.com | © 2026 MrYartEu</p>
+    Contact: youremail@example.com | © 2026 MrYartEu
   </footer>
 </body>
 </html>
