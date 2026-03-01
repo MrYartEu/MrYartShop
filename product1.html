@@ -6,86 +6,100 @@
 <title>MrYartEu - Giant Skittles</title>
 
 <style>
-  body {
-    font-family: Arial;
-    background: #f7f7f7;
-    margin: 0;
-    padding: 0;
-    color: #333;
-  }
+body {
+  font-family: Arial;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
 
-  header {
-    background: #222;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
+header {
+  background: #111;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
 
-  header h1 {
-    margin: 0;
-  }
+.main-box {
+  max-width: 1200px;
+  margin: 60px auto;
+  background: white;
+  display: flex;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
 
-  /* BIG FULL WHITE BOX */
-  .container {
-    display: flex;
-    max-width: 1000px;
-    margin: 40px auto;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    padding: 40px;
-    min-height: 600px; /* makes it go further down */
-  }
+/* LEFT SIDE IMAGE */
+.left-side {
+  flex: 2;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
 
-  .left {
-    flex: 1;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.left-side img {
+  max-width: 80%;
+  max-height: 500px;
+  width: auto;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
 
-  .left img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 8px;
-  }
+/* RIGHT SIDE INFO */
+.right-side {
+  flex: 1;
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+}
 
-  .right {
-    flex: 1;
-    padding: 20px;
-    display: flex;
+.right-side h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+/* BUTTON STYLE */
+.button {
+  padding: 16px;
+  margin-bottom: 15px;
+  text-align: center;
+  background: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background: #333;
+}
+
+/* DESCRIPTION UNDER BUTTONS */
+.description {
+  margin-top: 30px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+@media (max-width: 900px) {
+  .main-box {
     flex-direction: column;
   }
 
-  .right h2 {
-    font-size: 2rem;
-    margin-bottom: 25px;
+  .left-side {
+    padding: 40px;
   }
 
-  .btn {
-    padding: 14px 25px;
-    background: #222;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    display: block;
-    margin-bottom: 15px;
-    text-align: center;
-    font-size: 16px;
+  .right-side {
+    padding: 30px;
   }
-
-  .btn:hover {
-    background: #444;
-  }
-
-  /* DESCRIPTION NOW UNDER BUTTONS */
-  .description {
-    margin-top: 20px;
-    font-size: 1.05rem;
-    line-height: 1.6;
-  }
-
+}
 </style>
 </head>
 
@@ -95,23 +109,25 @@
   <h1>MrYartEu</h1>
 </header>
 
-<div class="container">
+<div class="main-box">
 
-  <div class="left">
+  <div class="left-side">
     <img src="product1.jpg" alt="Giant Skittles">
   </div>
 
-  <div class="right">
+  <div class="right-side">
     <h2>Giant Skittles</h2>
 
-    <a class="btn" href="https://buy.stripe.com/placeholder1" target="_blank">Buy Now</a>
-    <a class="btn" href="#" onclick="alert('Added to basket (demo)!')">Add to Basket</a>
-    <a class="btn" href="index.html">← Back to Store</a>
+    <a class="button" href="https://buy.stripe.com/placeholder1" target="_blank">Buy Now</a>
+
+    <a class="button" href="#">Add to Cart</a>
+
+    <a class="button" href="index.html">Return to Store</a>
 
     <div class="description">
-      Full description of Giant Skittles goes here. Add flavor, size, story,
-      ingredients, shipping time, or any details you want your customer to know.
-      Make this section longer if you want the white box to stretch further down.
+      Giant Skittles with intense fruity flavor and extra crunch.
+      Add your full product description here. Include size, weight,
+      ingredients, and shipping details.
     </div>
 
   </div>
