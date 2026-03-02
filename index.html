@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MrYartEu Store</title>
-
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -41,7 +34,8 @@
   }
 
   header {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
     padding: 20px 0;
     display: flex;
     justify-content: space-between;
@@ -69,6 +63,11 @@
     text-decoration: none;
     font-weight: bold;
     margin: 5px 20px;
+    transition: 0.3s;
+  }
+
+  nav a:hover {
+    color: #ccc;
   }
 
   nav .left { flex: 1; text-align: left; }
@@ -89,23 +88,33 @@
     align-items: stretch;
   }
 
+  /* GLASS PRODUCT CARDS */
   .product {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 18px;
     width: 100%;
     max-width: 350px;
     text-align: center;
-    padding: 20px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    padding: 25px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color: #333;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: 0.3s ease;
+  }
+
+  .product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.7);
   }
 
   .product img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 12px;
     margin-bottom: 15px;
   }
 
@@ -117,16 +126,17 @@
   .btn {
     display: inline-block;
     padding: 10px 20px;
-    background: #222;
+    background: rgba(0, 0, 0, 0.6);
     color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
     transition: 0.3s;
     margin-top: auto;
+    border: 1px solid rgba(255,255,255,0.2);
   }
 
   .btn:hover {
-    background: #555;
+    background: rgba(255,255,255,0.2);
   }
 
   .coming-soon {
@@ -138,18 +148,23 @@
     color: #fff;
   }
 
+  /* GLASS ABOUT US SECTION */
   .about-us {
     max-width: 1200px;
     margin: 40px auto 60px auto;
-    padding: 25px;
-    background: rgba(255,255,255,0.9);
-    border-radius: 12px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    color: #333;
+    padding: 35px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.15);
   }
 
   footer {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
     text-align: center;
     padding: 15px 0;
     font-size: 0.9rem;
@@ -178,67 +193,3 @@
   }
 
 </style>
-</head>
-<body>
-
-<!-- VIDEO -->
-<video autoplay muted loop id="bg-video">
-  <source src="videos/galaxyy.mp4" type="video/mp4">
-</video>
-
-<!-- DARK OVERLAY -->
-<div class="overlay"></div>
-
-<header>
-  <nav>
-    <div class="left"><a href="#about">About Us</a></div>
-    <div class="right"><a href="#contact">Contact Us</a></div>
-  </nav>
-  <h1>MrYartEu</h1>
-</header>
-
-<div class="container">
-  <h2 style="text-align:center;">Our Candy Collection</h2>
-
-  <div class="gallery">
-
-    <div class="product">
-      <img src="images/store_front.png" alt="Giant Skittles">
-      <h2>Giant Skittles</h2>
-      <a class="btn" href="product1.html">View / Buy</a>
-    </div>
-
-    <div class="product">
-      <img src="images/muha_meds.png" alt="Sour Patch Kids">
-      <h2>Sour Patch Kids</h2>
-      <a class="btn" href="product2.html">View / Buy</a>
-    </div>
-
-    <div class="product">
-      <img src="images/boutiq.png" alt="Haribo Golden Bears">
-      <h2>Haribo Golden Bears</h2>
-      <a class="btn" href="product3.html">View / Buy</a>
-    </div>
-
-  </div>
-</div>
-
-<div class="coming-soon">Coming Soon!</div>
-
-<div class="about-us" id="about">
-  <h2>About Us</h2>
-  <p>At MR Yart EU, we specialise in the discreet distribution of premium disposable products across the European Union. Operating from Ireland, our company is committed to providing customers with high-quality brands and carefully selected premium flavours. We take pride in maintaining a reliable and professional service, ensuring that all orders are packaged securely and discreetly to protect customer privacy.
-
-Currently, we dispatch orders twice per week, allowing us to maintain consistent delivery standards while ensuring efficiency and customer satisfaction. Our focus on quality control means that we only stock reputable brands known for their performance and consistency. By prioritising both discretion and reliability, we aim to build long-term trust with our customers.
-
-As a growing business, MR Yart EU is actively working toward expanding its shipping network beyond the European Union to reach additional international markets. Our long-term objective is to strengthen our brand presence while maintaining the high standards of service, professionalism, and product quality that define our company.
-
-Through careful planning, customer-focused service, and a commitment to excellence, MR Yart EU continues to position itself as a dependable and expanding enterprise within its market sector.</p>
-</div>
-
-<footer id="contact">
-  Contact: youremail@example.com | © 2026 MrYartEu
-</footer>
-
-</body>
-</html>
