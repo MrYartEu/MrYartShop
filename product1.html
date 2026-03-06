@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -149,8 +149,10 @@ header {
       <option value="5">5</option>
     </select>
 
-    <!-- STRIPE BUY NOW BUTTON -->
-    <a class="button" href="https://buy.stripe.com/fZu28q8YQbGJah993y1Fe00" target="_blank">Buy Now</a>
+    <!-- Stripe Buy Now -->
+    <a class="button" href="https://buy.stripe.com/14A8wOfne8ux891gw01Fe01" target="_blank">
+      Buy Now
+    </a>
     <a class="button" href="index.html">Return to Store</a>
   </div>
 </div>
@@ -174,10 +176,10 @@ header {
     <strong>Ace Ultra Premium 2g Disposable Vape</strong><br>
     Engineered for performance and convenience:
     <ul>
-      <li><strong>650mAh rechargeable lithium-polymer battery</strong> – provides over 350 full draws</li>
-      <li><strong>Dual-ceramic coil</strong> – ensures consistent, even heating</li>
-      <li><strong>USB-C charging port</strong> – fast and reliable recharging</li>
-      <li><strong>Sleek, portable design</strong> – perfect for on-the-go use</li>
+      <li><strong>650mAh rechargeable lithium-polymer battery</strong> – over 350 draws</li>
+      <li><strong>Dual-ceramic coil</strong> – consistent heating</li>
+      <li><strong>USB-C charging port</strong> – fast and reliable</li>
+      <li><strong>Sleek, portable design</strong> – on-the-go ready</li>
       <li><strong>Premium, hassle-free vaping experience</strong></li>
     </ul>
   </div>
@@ -199,11 +201,7 @@ const flavorImages = {
 function updateImage() {
   const flavor = document.getElementById("flavor").value;
   const img = document.getElementById("product-image");
-  if (flavor && flavorImages[flavor]) {
-    img.src = flavorImages[flavor];
-  } else {
-    img.src = "images/store_front.png";
-  }
+  img.src = flavorImages[flavor] || "images/store_front.png";
 }
 </script>
 
