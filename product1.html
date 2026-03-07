@@ -5,126 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MrYartEu - Ace Ultra Premium</title>
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
-  margin: 0;
-  padding: 0;
-  color: #333;
-}
-header {
-  background: #111;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-.main-box {
-  max-width: 1200px;
-  margin: 60px auto 20px auto;
-  background: white;
-  display: flex;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  overflow: hidden;
-}
-.left-side {
-  flex: 2;
-  background: #fafafa;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 60px;
-}
-.left-side img {
-  max-width: 80%;
-  max-height: 500px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
-.right-side {
-  flex: 1;
-  padding: 60px 50px;
-  display: flex;
-  flex-direction: column;
-}
-.right-side h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-.right-side label {
-  font-weight: bold;
-  margin-top: 15px;
-  margin-bottom: 5px;
-}
-.flavor-select, .quantity-select {
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  margin-bottom: 20px;
-  width: 100%;
-}
-.price {
-  font-size: 22px;
-  margin-bottom: 20px;
-  color: #222;
-}
-.button {
-  padding: 16px;
-  margin-bottom: 15px;
-  text-align: center;
-  background: black;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-}
-.button:hover { background: #333; }
-
-.description-below {
-  width: 100%;
-  background: #fafafa;
-  padding: 40px 20px;
-  margin-top: 20px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-}
-.description-below .description {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: left;
-  line-height: 1.6;
-  color: #444;
-}
-.description-below ul {
-  padding-left: 20px;
-}
-
-@media(max-width:900px) {
-  .main-box { flex-direction: column; }
-  .left-side { padding: 40px; }
-  .right-side { padding: 30px; }
-}
+body { font-family: Arial, sans-serif; background:#f2f2f2; margin:0; padding:0; color:#333;}
+header{background:#111;color:white;padding:20px;text-align:center;}
+.main-box{max-width:1200px;margin:60px auto 20px auto;background:white;display:flex;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,0.08);overflow:hidden;}
+.left-side{flex:2;background:#fafafa;display:flex;align-items:center;justify-content:center;padding:60px;}
+.left-side img{max-width:80%;max-height:500px;width:auto;height:auto;object-fit:contain;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.15);}
+.right-side{flex:1;padding:60px 50px;display:flex;flex-direction:column;}
+.right-side h2{font-size:32px;margin-bottom:10px;}
+.right-side label{font-weight:bold;margin-top:15px;margin-bottom:5px;}
+.flavor-select,.quantity-select{padding:12px;font-size:16px;border-radius:6px;border:1px solid #ccc;margin-bottom:20px;width:100%;}
+.price{font-size:22px;margin-bottom:20px;color:#222;}
+.button{padding:16px;margin-bottom:15px;text-align:center;background:black;color:white;text-decoration:none;border-radius:6px;font-size:16px;cursor:pointer;border:none;}
+.button:hover{background:#333;}
+.description-below{width:100%;background:#fafafa;padding:40px 20px;margin-top:20px;box-shadow:0 5px 20px rgba(0,0,0,0.05);}
+.description-below .description{max-width:900px;margin:0 auto;text-align:left;line-height:1.6;color:#444;}
+.description-below ul{padding-left:20px;}
+@media(max-width:900px){.main-box{flex-direction:column;}.left-side{padding:40px;}.right-side{padding:30px;}}
 </style>
 </head>
 <body>
 
-<header>
-  <h1>MrYartEu</h1>
-</header>
+<header><h1>MrYartEu</h1></header>
 
 <div class="main-box">
   <div class="left-side">
-    <img id="product-image" src="images/store_front.png" alt="Giant Skittles">
+    <img id="product-image" src="images/store_front.png" alt="Ace Ultra Premium">
   </div>
 
   <div class="right-side">
-    <h2>Giant Skittles</h2>
-    <div class="price" id="price">€35</div>
+    <h2>Ace Ultra Premium</h2>
+    <div class="price">€35</div>
 
     <label for="flavor">Choose a flavor:</label>
     <select class="flavor-select" id="flavor" onchange="updateImage()">
@@ -149,42 +59,36 @@ header {
       <option value="5">5</option>
     </select>
 
-    <!-- Stripe Buy Now -->
-    <a class="button" href="https://buy.stripe.com/14A8wOfne8ux891gw01Fe01" target="_blank">
-      Buy Now
-    </a>
+    <button class="button" id="buy-now">Buy Now</button>
     <a class="button" href="index.html">Return to Store</a>
   </div>
 </div>
 
 <div class="description-below">
   <div class="description">
-    <strong>Discover the Full Spectrum of Ace Ultra Premium Flavours</strong><br>
-    Indulge in our curated selection of Ace Ultra Premium flavours for a smooth and satisfying experience:
+    <strong>Ace Ultra Premium 2g Disposable Vape Flavours</strong>
     <ul>
-      <li><strong>Strawberry Dream</strong></li>
-      <li><strong>Raspberry Kiss</strong></li>
-      <li><strong>Berry Burst</strong></li>
-      <li><strong>Zombie Zest</strong></li>
-      <li><strong>Apple Cooler</strong></li>
-      <li><strong>Citrus Sunset</strong></li>
-      <li><strong>Jack-O-Lantern</strong></li>
-      <li><strong>Kiwi Berry Mist</strong></li>
-      <li><strong>Rose Serenade</strong></li>
+      <li>Strawberry Dream</li>
+      <li>Raspberry Kiss</li>
+      <li>Berry Burst</li>
+      <li>Zombie Zest</li>
+      <li>Apple Cooler</li>
+      <li>Citrus Sunset</li>
+      <li>Jack-O-Lantern</li>
+      <li>Kiwi Berry Mist</li>
+      <li>Rose Serenade</li>
     </ul>
-
-    <strong>Ace Ultra Premium 2g Disposable Vape</strong><br>
-    Engineered for performance and convenience:
+    <strong>Battery & Specs</strong>
     <ul>
-      <li><strong>650mAh rechargeable lithium-polymer battery</strong> – over 350 draws</li>
-      <li><strong>Dual-ceramic coil</strong> – consistent heating</li>
-      <li><strong>USB-C charging port</strong> – fast and reliable</li>
-      <li><strong>Sleek, portable design</strong> – on-the-go ready</li>
-      <li><strong>Premium, hassle-free vaping experience</strong></li>
+      <li>650mAh rechargeable battery (~350 draws)</li>
+      <li>Dual-ceramic coil</li>
+      <li>USB-C charging</li>
+      <li>Portable & sleek design</li>
     </ul>
   </div>
 </div>
 
+<script src="https://js.stripe.com/v3/"></script>
 <script>
 const flavorImages = {
   "Strawberry Dream": "images/strawberry_dream.png",
@@ -201,8 +105,32 @@ const flavorImages = {
 function updateImage() {
   const flavor = document.getElementById("flavor").value;
   const img = document.getElementById("product-image");
-  img.src = flavorImages[flavor] || "images/store_front.png";
+  if (flavor && flavorImages[flavor]) {
+    img.src = flavorImages[flavor];
+  } else {
+    img.src = "images/store_front.png";
+  }
 }
+
+// Stripe Checkout
+const stripe = Stripe('pk_live_51T7i3fA60jE2bKINQqiHj3hto8ODtJeFKvl4Gg9OUFDNZGkoih663OpfmwOFtOYP3vJY1zba28z164M23ZcUFyMC00g78ZJQ9O'); // <-- Replace with your key
+document.getElementById('buy-now').addEventListener('click', () => {
+  const flavor = document.getElementById('flavor').value;
+  const quantity = parseInt(document.getElementById('quantity').value);
+
+  if (!flavor) { alert('Select a flavor first!'); return; }
+
+  stripe.redirectToCheckout({
+    lineItems: [{
+      price: 'price_1T88z1A60jE2bKINlnAVc95b', // <-- Replace with Stripe Price ID
+      quantity: quantity
+    }],
+    mode: 'payment',
+    clientReferenceId: flavor,
+    successUrl: window.location.href + '?success=true',
+    cancelUrl: window.location.href + '?canceled=true'
+  });
+});
 </script>
 
 </body>
