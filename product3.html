@@ -4,259 +4,218 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MrYartEu - Boutiq Switch V3</title>
-
 <style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+header {
+  background: #111;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+.main-box {
+  max-width: 1200px;
+  margin: 60px auto 20px auto;
+  background: white;
+  display: flex;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+.left-side {
+  flex: 2;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+}
+.left-side img {
+  max-width: 80%;
+  max-height: 500px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.right-side {
+  flex: 1;
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+}
+.right-side h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+.right-side label {
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.flavor-select, .quantity-select {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.price {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #222;
+}
+.button {
+  padding: 16px;
+  margin-bottom: 15px;
+  text-align: center;
+  background: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+}
+.button:hover { background: #333; }
 
-body{
-font-family: Arial, sans-serif;
-background:#f2f2f2;
-margin:0;
-padding:0;
-color:#333;
+.description-below {
+  width: 100%;
+  background: #fafafa;
+  padding: 40px 20px;
+  margin-top: 20px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+.description-below .description {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+  line-height: 1.6;
+  color: #444;
+}
+.description-below ul {
+  padding-left: 20px;
 }
 
-header{
-background:#111;
-color:white;
-padding:20px;
-text-align:center;
+@media(max-width:900px) {
+  .main-box { flex-direction: column; }
+  .left-side { padding: 40px; }
+  .right-side { padding: 30px; }
 }
-
-.main-box{
-max-width:1200px;
-margin:60px auto 20px auto;
-background:white;
-display:flex;
-border-radius:12px;
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
-overflow:hidden;
-}
-
-.left-side{
-flex:2;
-background:#fafafa;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:60px;
-}
-
-.left-side img{
-max-width:80%;
-max-height:500px;
-width:auto;
-height:auto;
-object-fit:contain;
-border-radius:12px;
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
-}
-
-.right-side{
-flex:1;
-padding:60px 50px;
-display:flex;
-flex-direction:column;
-}
-
-.right-side h2{
-font-size:32px;
-margin-bottom:10px;
-}
-
-.price{
-font-size:22px;
-margin-bottom:20px;
-color:#222;
-}
-
-.right-side label{
-font-weight:bold;
-margin-top:15px;
-margin-bottom:5px;
-}
-
-.flavor-select,.quantity-select{
-padding:12px;
-font-size:16px;
-border-radius:6px;
-border:1px solid #ccc;
-margin-bottom:20px;
-width:100%;
-}
-
-.button{
-padding:16px;
-margin-bottom:15px;
-text-align:center;
-background:black;
-color:white;
-text-decoration:none;
-border-radius:6px;
-font-size:16px;
-cursor:pointer;
-border:none;
-}
-
-.button:hover{
-background:#333;
-}
-
-.description-below{
-width:100%;
-background:#fafafa;
-padding:40px 20px;
-margin-top:20px;
-box-shadow:0 5px 20px rgba(0,0,0,0.05);
-}
-
-.description-below .description{
-max-width:900px;
-margin:0 auto;
-text-align:left;
-line-height:1.6;
-color:#444;
-}
-
-.description-below ul{
-padding-left:20px;
-}
-
-@media(max-width:900px){
-
-.main-box{
-flex-direction:column;
-}
-
-.left-side{
-padding:40px;
-}
-
-.right-side{
-padding:30px;
-}
-
-}
-
 </style>
 </head>
-
 <body>
 
 <header>
-<h1>MrYartEu</h1>
+  <h1>MrYartEu</h1>
 </header>
 
 <div class="main-box">
+  <div class="left-side">
+    <img id="product-image" src="images/boutiq.png" alt="Boutiq Switch V3">
+  </div>
 
-<div class="left-side">
-<img id="product-image" src="images/boutiq_default.png" alt="Boutiq Switch V3">
-</div>
+  <div class="right-side">
+    <h2>Haribo Golden Bears</h2>
+    <div class="price">€40</div>
 
-<div class="right-side">
+    <label for="flavor">Choose a flavor:</label>
+    <select class="flavor-select" id="flavor" onchange="updateImage()">
+      <option value="">Select Flavor</option>
+      <option value="Blueberry Zlushie">Blueberry Zlushie</option>
+      <option value="Strawberry Cough">Strawberry Cough</option>
+      <option value="Pineapple Express">Pineapple Express</option>
+      <option value="Watermelon Zkittlez">Watermelon Zkittlez</option>
+      <option value="Gelato 41">Gelato 41</option>
+      <option value="White Runtz">White Runtz</option>
+    </select>
 
-<h2>Boutiq Switch V3</h2>
-<div class="price">€40</div>
+    <label for="quantity">Quantity:</label>
+    <select class="quantity-select" id="quantity">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
 
-<label>Choose a Flavor</label>
-
-<select class="flavor-select" id="flavor" onchange="updateImage()">
-<option value="">Select Flavor</option>
-<option value="Blueberry Zlushie">Blueberry Zlushie</option>
-<option value="Strawberry Cough">Strawberry Cough</option>
-<option value="Pineapple Express">Pineapple Express</option>
-<option value="Watermelon Zkittlez">Watermelon Zkittlez</option>
-<option value="Gelato 41">Gelato 41</option>
-<option value="White Runtz">White Runtz</option>
-</select>
-
-<label>Quantity</label>
-
-<select class="quantity-select" id="quantity">
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-</select>
-
-<a class="button" href="https://buy.stripe.com/fZudR87UM3ad4WP7Zu1Fe03" target="_blank">Buy Now</a>
-
-<a class="button" href="index.html">Return To Store</a>
-
-</div>
+    <button class="button" id="checkout-button">Buy Now</button>
+    <a class="button" href="index.html">Return to Store</a>
+  </div>
 </div>
 
 <div class="description-below">
-
-<div class="description">
-
-<strong>Boutiq Switch V3 2G Disposable</strong><br><br>
-
-Experience powerful dual‑strain technology in a sleek portable device.
-
-<strong>Available Flavors</strong>
-
-<ul>
-<li>Blueberry Zlushie</li>
-<li>Strawberry Cough</li>
-<li>Pineapple Express</li>
-<li>Watermelon Zkittlez</li>
-<li>Gelato 41</li>
-<li>White Runtz</li>
-</ul>
-
-<strong>Key Features</strong>
-
-<ul>
-<li>High Capacity 2G Disposable</li>
-<li>Dual Flavor Switching Technology</li>
-<li>Smooth Vapor Production</li>
-<li>Compact Portable Design</li>
-<li>Ready To Use Device</li>
-</ul>
-
-<strong>Battery Specifications</strong>
-
-<ul>
-<li>650mAh Rechargeable Battery</li>
-<li>USB‑C Charging Port</li>
-<li>Recharge Time: 45‑60 minutes</li>
-<li>LED Indicator System</li>
-</ul>
-
-</div>
+  <div class="description">
+    <strong>Boutiq Switch V3 2G Disposable</strong><br>
+    Premium dual-strain vape device with multiple flavors:
+    <ul>
+      <li>Blueberry Zlushie</li>
+      <li>Strawberry Cough</li>
+      <li>Pineapple Express</li>
+      <li>Watermelon Zkittlez</li>
+      <li>Gelato 41</li>
+      <li>White Runtz</li>
+    </ul>
+  </div>
 </div>
 
+<script src="https://js.stripe.com/v3/"></script>
 <script>
-
 const flavorImages = {
-
-"Blueberry Zlushie":"images/blueberry_zlushie.png",
-"Strawberry Cough":"images/strawberry_cough.png",
-"Pineapple Express":"images/pineapple_express.png",
-"Watermelon Zkittlez":"images/watermelon_zkittlez.png",
-"Gelato 41":"images/gelato_41.png",
-"White Runtz":"images/white_runtz.png"
-
+  "Blueberry Zlushie": "images/blueberry_zlushie.png",
+  "Strawberry Cough": "images/strawberry_cough.png",
+  "Pineapple Express": "images/pineapple_express.png",
+  "Watermelon Zkittlez": "images/watermelon_zkittlez.png",
+  "Gelato 41": "images/gelato_41.png",
+  "White Runtz": "images/white_runtz.png"
 };
 
-function updateImage(){
-
-const flavor=document.getElementById("flavor").value;
-const img=document.getElementById("product-image");
-
-if(flavor && flavorImages[flavor]){
-
-img.src=flavorImages[flavor];
-
-}else{
-
-img.src="images/boutiq_default.png";
-
+function updateImage() {
+  const flavor = document.getElementById("flavor").value;
+  const img = document.getElementById("product-image");
+  if (flavor && flavorImages[flavor]) {
+    img.src = flavorImages[flavor];
+  } else {
+    img.src = "images/boutiq.png";
+  }
 }
 
-}
+// STRIPE CHECKOUT
+const stripe = Stripe('pk_live_51T7i3fA60jE2bKINQqiHj3hto8ODtJeFKvl4Gg9OUFDNZGkoih663OpfmwOFtOYP3vJY1zba28z164M23ZcUFyMC00g78ZJQ9O'); // <-- replace with your key
+const checkoutButton = document.getElementById('checkout-button');
 
+checkoutButton.addEventListener('click', () => {
+  const flavor = document.getElementById('flavor').value;
+  const quantity = parseInt(document.getElementById('quantity').value);
+
+  if (!flavor) {
+    alert('Please select a flavor!');
+    return;
+  }
+
+  // Pass flavor as metadata, quantity to price lookup
+  stripe.redirectToCheckout({
+    lineItems: [{
+      price: 'price_1T88z1A60jE2bKINlnAVc95b', // <-- replace with your Stripe Price ID
+      quantity: quantity,
+    }],
+    mode: 'payment',
+    successUrl: window.location.origin + '/success.html?flavor=' + encodeURIComponent(flavor) + '&quantity=' + quantity,
+    cancelUrl: window.location.origin + '/product3.html',
+    // metadata is handled in Stripe dashboard if you want to track flavor
+  }).then(function (result) {
+    if (result.error) {
+      alert(result.error.message);
+    }
+  });
+});
 </script>
 
 </body>
